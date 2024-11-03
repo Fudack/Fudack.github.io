@@ -86,4 +86,34 @@ $(function() {
             }
     });
     
+    (function () {
+      emailjs.init("iXuMeF1TxnCLZx7CU"); // Tu API Key
+    })();
+    
+    
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  (function () {
+    emailjs.init("iXuMeF1TxnCLZx7CU"); // Tu API Key
+  })();
+
+
+
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+    
+
+      emailjs.sendForm("service_xr7rnra", "template_lqih37l", this).then(
+        function () {
+          alert("Mensaje enviado con éxito!");
+        },
+        function (error) {
+          alert("Error al enviar el mensaje: " + JSON.stringify(error));
+        }
+      );
+    });
 });
